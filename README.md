@@ -1,12 +1,24 @@
-# React + Vite
+## Διαδικασία Ανάπτυξης
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1.  **Αρχική Ρύθμιση**: Το project ξεκίνησε με React και Vite. Η Tailwind CSS ενσωματώθηκε για το styling.
 
-Currently, two official plugins are available:
+2.  **Δομή Layout**: Η βασική διάταξη της εφαρμογής (μενού/πληροφορίες αριστερά, χάρτης δεξιά) υλοποιήθηκε μέσω του component `MainPageLayout.jsx`. Αυτό το component χρησιμοποιεί Flexbox και Tailwind CSS κλάσεις (`flex`, `flex-col`, `lg:flex-row`, `w-full`, `lg:w-1/4`, `flex-1`) για να διασφαλίσει τη σωστή προσαρμογή σε διαφορετικά μεγέθη οθόνης.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+3.  **Διαχωρισμός Components**: Η κύρια λογική και η διαχείριση της κατάστασης (state) βρίσκονται στο `App.jsx`. Το `App.jsx` αναθέτει την εμφάνιση των πληροφοριών στο `ControlPanel.jsx` και την εμφάνιση του χάρτη και της αναζήτησης στο `MapContainer.jsx`.
 
-## Expanding the ESLint configuration
+4.  **Ενσωμάτωση Χάρτη**: Για τον χάρτη χρησιμοποιήθηκε η Leaflet. Το `MapContainer.jsx` φιλοξενεί τον χάρτη, ενώ ένα βοηθητικό component, το `MapUpdater.jsx`, είναι υπεύθυνο για την προγραμματική ενημέρωση του κέντρου και του ζουμ του χάρτη κάθε φορά που αλλάζουν οι συντεταγμένες της πόλης. Αυτό διασφαλίζει μια ομαλή εμπειρία χρήστη.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+5.  **Ανάκτηση Δεδομένων**:
+    *   Αρχικά εξετάστηκε η χρήση δύο διαφορετικών APIs (ενός Geocoding API για συντεταγμένες και του Wikipedia API για πληροφορίες).
+    *   Ωστόσο, ανακαλύφθηκε ότι το Wikipedia API (μέσω του endpoint `/page/summary`) παρέχει τόσο την περίληψη της πόλης όσο και τις γεωγραφικές συντεταγμένες (`lat`, `lon`) σε ένα μόνο αίτημα. Αυτή η βελτιστοποίηση μείωσε την πολυπλοκότητα, τον αριθμό των API calls και την ανάγκη για πολλαπλά API keys.
+    *   Το `axios` χρησιμοποιείται για την πραγματοποίηση αυτών των HTTP αιτημάτων.
+
+6.  **Χειρισμός Καταστάσεων**: Η εφαρμογή διαχειρίζεται τις καταστάσεις φόρτωσης (`isLoading`) και σφάλματος (`error`) για να παρέχει σαφή ανάδραση στον χρήστη. Αυτές οι καταστάσεις περνούν ως props στο `ControlPanel.jsx` για την εμφάνιση σχετικών μηνυμάτων.
+
+7.  **Στυλ και UI/UX**: Το Tailwind CSS χρησιμοποιήθηκε για γρήγορο και συνεπές styling, επιτρέποντας την εύκολη προσαρμογή της εμφάνισης. Έγινε ιδιαίτερη προσοχή στην responsive σχεδίαση για να διασφαλιστεί η λειτουργικότητα σε όλες τις συσκευές.
+
+## Μελλοντικές Βελτιώσεις
+
+-   Προσθήκη δεδομένων καιρού για την πόλη που αναζητήθηκε (π.χ. από το OpenWeatherMap API).
+-   Αποθήκευση πρόσφατων αναζητήσεων στο `localStorage`.
+-   Προσθήκη περισσότερων σημείων ενδιαφέροντος στον χάρτη.
