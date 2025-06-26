@@ -34,6 +34,13 @@ export default function ControlPanel({
           {cityData.summary && (
             <div>
               <h4 className="font-semibold text-gray-600 mt-4 mb-2">Summary (from Wikipedia)</h4>
+              {cityData.thumbnail && (
+                <img
+                  src={cityData.thumbnail}
+                  alt={`Picture of ${cityData.name}`}
+                  className="w-full h-auto rounded-lg mb-3"
+                />
+              )}
               <p className="text-sm text-gray-600 italic">{cityData.summary}</p>
             </div>
           )}

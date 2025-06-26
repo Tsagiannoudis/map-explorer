@@ -28,7 +28,8 @@ function App() {
       )}`;
       
       const response = await axios.get(wikiUrl);
-      const { title, extract, coordinates } = response.data;
+      // what we get back from the API
+      const { title, extract, coordinates, thumbnail } = response.data;
 
       //check if the response contains coordinates
       if ( !coordinates || !coordinates.lat || !coordinates.lon) {
@@ -41,6 +42,7 @@ function App() {
       setCityData({
         name: title,
         summary: extract,
+        thumbnail: thumbnail ? thumbnail.source : null, // Fallback image if no thumbnail
       });
 
     } catch (err) {
