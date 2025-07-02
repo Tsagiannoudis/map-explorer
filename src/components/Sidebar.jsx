@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ControlPanel({
+export default function Sidebar({
   cityData,
   isLoading,
   error,

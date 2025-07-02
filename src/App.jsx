@@ -3,7 +3,7 @@ import './App.css'
 import axios from 'axios';
 import MainPageLayout from './layouts/MainPageLayout'; 
 import MapContainer from './components/MapContainer';
-import ControlPanel from './components/ControlPanel'; 
+import Sidebar from './components/Sidebar'; 
 
 
 function App() {
@@ -68,7 +68,7 @@ function App() {
   return (
       
       <MainPageLayout
-        controlpanel={<ControlPanel cityData={cityData} isLoading={isLoading} error={error} />}
+        sidebar={<Sidebar cityData={cityData} isLoading={isLoading} error={error} />}
         mapcontainer={<MapContainer searchTerm={searchTerm} setSearchTerm={setSearchTerm} handleSearch={handleSearch} mapCoordinates={mapCoordinates} cityData={cityData} />}
       />
     
