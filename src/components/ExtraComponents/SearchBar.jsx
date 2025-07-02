@@ -4,8 +4,7 @@ export default function SearchBar({ searchTerm, setSearchTerm, handleSearch }) {
 
       return (
     <>
-      {/* Search Bar */}
-      <div className="mb-2 relative z-[1000]"> {/* z-index to keep it above map controls */}
+      <div className="w-96"> 
         <div className="flex gap-2 pl-4 pr-4 pt-2">
           <input
             type="text"
