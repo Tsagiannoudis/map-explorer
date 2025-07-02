@@ -2,7 +2,7 @@ import React from 'react';
 import { MapContainer as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
 import MapUpdater from './MapUpdater'; // Helper component to move the map
 //import { map } from 'leaflet';
-import SearchBar from './SearchBar'; // Import the SearchBar component
+import SearchBar from '../ExtraComponents/SearchBar'; // Import the SearchBar component
 
 export default function MapContainer({  mapCoordinates, cityData }) {
   // Set a default position for the map when the app first loads

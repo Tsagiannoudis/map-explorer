@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import axios from 'axios';
 import MainPageLayout from './layouts/MainPageLayout'; 
-import MapContainer from './components/MapContainer';
+import MapContainer from './components/Map/MapContainer';
 import Sidebar from './components/Sidebar'; 
 
 
