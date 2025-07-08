@@ -7,7 +7,7 @@ export default function MainPageLayout({ sidebar, mapcontainer, searchbar }) {
                 {mapcontainer}
             </div>
             
-            <aside className='absolute top-4 bottom-4 left-6 w-full max-w-md bg-slate-200 rounded-lg bg-opacity-90 backdrop-blur-sm shadow-2xl p-6 overfliw-y-auto z-20'>
+            <aside className='absolute top-4 bottom-4 left-6 w-400 max-w-md bg-slate-200 rounded-lg bg-opacity-90 backdrop-blur-sm shadow-2xl p-6 overfliw-y-auto z-20'>
                 {sidebar}
             </aside>
 

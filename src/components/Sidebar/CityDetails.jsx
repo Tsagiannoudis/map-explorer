@@ -1,14 +1,10 @@
-import React from 'react';
+import React from "react";
 
-export default function Sidebar({
-  cityData,
-  isLoading,
-  error,
-}) {
-  return (
-    <>
-      <h2 className="text-2xl font-semibold mb-6 text-gray-800">Information</h2>
-      
+export default function CityDetails({ cityData, isLoading, error, }) {
+
+    return (
+
+    <>      
       {isLoading && (
         <div className="p-4 bg-blue-100 text-blue-800 rounded-lg animate-pulse">
           <p>Searching...</p>
@@ -47,5 +43,5 @@ export default function Sidebar({
         </div>
       )}
     </>
-  );
+    );
 }
